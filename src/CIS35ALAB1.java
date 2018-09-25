@@ -1,5 +1,5 @@
 import java.text.NumberFormat;
-import java.util.Scanner;
+import java.util.*;
 
 public class CIS35ALAB1 {	
 	
@@ -14,15 +14,15 @@ public class CIS35ALAB1 {
 	
 	public static void gatherData() {
 		// Now we will gather our data
-		System.out.printf("Please enter the following data and press enter between each entry\nHow much is the loan?");
+		System.out.printf("Please enter the following data and press enter between each entry\nLoan amount: ");
 		loanAmount = sc.nextDouble();
 		
 		//Gather the monthly interest rate
-		System.out.printf("What is the interest rate?");
+		System.out.printf("Interest rate:");
 		interestRate = sc.nextDouble();
 		
 		//Gather the monthly interest rate
-		System.out.printf("What is the period of the loan in years?");
+		System.out.printf("Loan time in years:");
 		loanTimeYears = sc.nextDouble();
 	}
 	
@@ -48,16 +48,18 @@ public class CIS35ALAB1 {
 	}
 	
 	public static void main(String[] Args) {
+		//We will use these formatting tools to automate showing dollar values as well as percentages
 		NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
 		NumberFormat interestFormat = NumberFormat.getPercentInstance();
 		
+		//we will call another method to gather data so that we can leave main uncluttered
 		gatherData();
+		
+		//now we will calculate the monthly payment
 		monthlyPaymentVal = monthlyPaymentCalc();
 		
-		System.out.printf(
-				"monthly payment:%s\ninterest rate:%s",
-				currencyFormat.format(monthlyPaymentVal),
-				interestFormat.format(interestRate));
+		//Now we will call a method to output all of our results in a nicely formatted way
+		//this will take two number formats and all of the data.
 		
 		sc.close();
 		return;
