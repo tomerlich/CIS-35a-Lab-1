@@ -3,14 +3,16 @@ import java.util.*;
 
 public class CIS35ALAB1 {	
 	
-	//First we declare variables to hold our user data;
-	static double loanAmount = 0.0;
-	static double interestRate = 0.0;
-	static double loanTimeYears = 0.0;
-	static double monthlyPaymentVal = 0.0;
-	static double loanTimeMonths = 0.0;
-	static double monthlyRate = 0.0;
-	
+	//First we declare variables to hold our user data
+	//we do this here so that we can use the variables in all of our methods.
+	private static double loanAmount = 0.0;
+	private static double interestRate = 0.0;
+	private static double loanTimeYears = 0.0;
+	private static double monthlyPaymentVal = 0.0;
+	private static double loanTimeMonths = 0.0;
+	private static double monthlyRate = 0.0;
+	private static double monthlyPayment = 0.0;
+
 	//before we can output the data for the user we need to get our inputs from the user for this we will use a scanner
 	static Scanner sc = new Scanner(System.in);
 	
@@ -29,7 +31,6 @@ public class CIS35ALAB1 {
 	}
 	
 	public static double monthlyPaymentCalc() {
-		double monthlyPayment = 0.0;
 		
 		//here we will do the calculations
 		//first convert rate to percent
@@ -54,11 +55,11 @@ public class CIS35ALAB1 {
 		
 		System.out.printf("\n\nMonthly Payment:%s\nTotal Payment:%s", 
 						currencyFormat.format(monthlyPayment),
-						currencyFormat.format(monthlyPayment * (loanTimeYears * 12)));
+						currencyFormat.format(monthlyPayment * loanTimeMonths));
 		
 		System.out.printf("\n\nPayment#\tInterest\tPrinciple\tBalance\n\n");
 		
-		for(int paymentNum = 0; paymentNum < loanTimeYears * 12; paymentNum++) {
+		for(int paymentNum = 0; paymentNum < loanTimeMonths; paymentNum++) {
 			interestAmount = monthlyRate * acountBalance;
 			principleAmount = monthlyPayment - interestAmount;
 			acountBalance = acountBalance - principleAmount;
@@ -72,9 +73,9 @@ public class CIS35ALAB1 {
 	}
 	
 	public static void main(String[] Args) {
+		
 		//We will use these formatting tools to automate showing dollar values as well as percentages
 		NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
-		NumberFormat interestFormat = NumberFormat.getPercentInstance();
 		
 		//we will call another method to gather data so that we can leave main uncluttered
 		gatherData();
