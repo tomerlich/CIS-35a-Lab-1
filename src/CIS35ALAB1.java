@@ -57,13 +57,13 @@ public class CIS35ALAB1 {
 						currencyFormat.format(monthlyPayment),
 						currencyFormat.format(monthlyPayment * loanTimeMonths));
 		
-		System.out.printf("\n\nPayment#\tInterest\tPrinciple\tBalance\n\n");
+		System.out.printf("\n\nPayment#\tInterest\tPrinciple\tBalance\n");
 		
 		for(int paymentNum = 0; paymentNum < loanTimeMonths; paymentNum++) {
 			interestAmount = monthlyRate * acountBalance;
 			principleAmount = monthlyPayment - interestAmount;
 			acountBalance = acountBalance - principleAmount;
-			System.out.printf("\t%d\t   %s\t    %s\t %s\n",
+			System.out.printf("%8d\t%8s\t%9s\t%s\n",
 							paymentNum + 1,
 							currencyFormat.format(interestAmount),
 							currencyFormat.format(principleAmount),
