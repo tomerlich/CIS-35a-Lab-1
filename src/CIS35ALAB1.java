@@ -63,7 +63,7 @@ public class CIS35ALAB1 {
 			interestAmount = monthlyRate * acountBalance;
 			principleAmount = monthlyPayment - interestAmount;
 			acountBalance = acountBalance - principleAmount;
-			System.out.printf("%8d\t%8s\t%9s\t%s\n",
+			System.out.printf("%8d\t%8s\t%9s\t%7s\n",
 							paymentNum + 1,
 							currencyFormat.format(interestAmount),
 							currencyFormat.format(principleAmount),
@@ -87,6 +87,7 @@ public class CIS35ALAB1 {
 		//this will take two number formats and all of the data.
 		printSchedule(currencyFormat, monthlyPaymentVal);
 		
+		//to prevent memory leaks we have to close the scanner other variables will get automatically garbage collected.
 		sc.close();
 		return;
 	};
