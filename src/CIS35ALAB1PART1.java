@@ -19,15 +19,15 @@ public class CIS35ALAB1PART1 {
 
 	public static void gatherData() {
 		// Now we will gather our data
-		System.out.printf("Please enter the following data and press enter between each entry\nLoan amount:");
+		System.out.printf("Please enter the following data and press enter between each entry\nLoan amount: ");
 		loanAmount = sc.nextDouble();
 
 		// Gather the monthly interest rate
-		System.out.printf("Interest rate:");
+		System.out.printf("Interest rate: ");
 		interestRate = sc.nextDouble();
 
 		// Gather the monthly interest rate
-		System.out.printf("Loan time in years:");
+		System.out.printf("Loan time in years: ");
 		loanTimeYears = sc.nextDouble();
 	}
 
